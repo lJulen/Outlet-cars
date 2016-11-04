@@ -1,0 +1,42 @@
+# app/config/security.yml
+security:
+    encoders:
+       # Symfony\Component\Security\Core\User\User: plaintext
+        Symfony\Component\Security\Core\User\User:
+            algorithm: sha1
+            iterations: 1
+            encode_as_base64: false
+
+
+    role_hierarchy:
+        ROLE_ADMIN:       ROLE_USER
+        ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+
+    providers:
+        in_memory:
+            memory:
+                users:
+                    #user:  { password: userpass, roles: [ 'ROLE_USER' ] }
+                    user:  { password: 45f106ef4d5161e7aa38cf6c666607f25748b6ca, roles: [ 'ROLE_USER' ] }
+                    #admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
+                    admin: { password: 74913f5cd5f61ec0bcfdb775414c2fb3d161b620, roles: [ 'ROLE_ADMIN' ] }
+
+    firewalls:
+
+        secured_area:
+            pattern:    ^/
+            anonymous: ~
+            form_login:
+                login_path: /admin/login
+                check_path: /admin/login_check
+                default_target_path: /admin/index
+                always_use_default_target_path: true
+            logout:
+                path: /admin/logout
+                target: /
+
+    access_control:
+        - { path: ^/admin/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin, roles: ROLE_ADMIN }
+       
+

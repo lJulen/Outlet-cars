@@ -1,0 +1,25 @@
+{# src/Blogger/BlogBundle/Resources/views/Blog/list.html.twig #}
+{% extends "BloggerBlogBundle::layout.html.twig" %}
+{% block title %}List of Posts{% endblock %}
+
+{% block body %}
+    {% for post in posts %}
+        <article class="post">
+            <div class="date"><time datetime="{{ post.date|date('c') }}">{{ post.date|date('l, F j, Y') }}</time></div>
+            <header>
+                <h2><a href="{{ path('blogger_blog_show', { 'id': post.id }) }}">{{ post.title }}</a></h2>
+            </header>
+
+            <div class="snippet">
+                <p>{{ post.body(200) }}</p>
+                <p class="continue"><a href="{{ path('blogger_blog_show', { 'id': post.id }) }}">Seguir leyendo...</a></p>
+            </div>
+
+            <footer class="meta">
+                <p>Comentarios: -</p>
+            </footer>
+        </article>
+    {% else %}
+        <p>No hay entradas en este blog</p>
+    {% endfor %}
+{% endblock %}

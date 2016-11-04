@@ -1,0 +1,10 @@
+{# src/Blogger/BlogBundle/Resources/views/Comment/create.html.twig #}
+
+{% extends 'BloggerBlogBundle::layout.html.twig' %}
+
+{% block title %}Añadir comentario{% endblock%}
+
+{% block body %}
+    <h1>Añadir un comentario al post "{{ comment.post.title }}"</h1>
+    {% include 'BloggerBlogBundle:Comment:form.html.twig' with { 'form': form } %}
+{% endblock %}

@@ -1,0 +1,17 @@
+{# src/Blogger/AdminBundle/Resources/views/Security/login.html.twig #}
+
+<link href="{{ asset('css/admin.css') }}" type="text/css" rel="stylesheet" />
+
+{% if error %}
+	<div>{{ error.message }}</div>
+{% endif %}
+
+<form action="{{ path('blogger_admin_login_check') }}" method="post"  class="login">
+	<label for="username">Usuario:</label>
+	<input type="text" id="username" name="_username" value="{{ last_username }}" />
+
+	<label for="password">Contraseña:</label>
+	<input type="password" id="password" name="_password" />
+
+	<button type="submit">Entrar</button>
+</form>

@@ -1,0 +1,10 @@
+.date { font-style:italic; border-bottom: 1px solid #CCC; }
+.body { margin-top: 20px; text-align: justify; }
+.comments { clear: both; }
+.comments .odd { background: #eee; }
+.comments .comment { padding: 20px; }
+.comments .comment p { margin-bottom: 0; }
+.comments h3 { padding: 10px; font-size: 20px; margin-bottom: 20px; clear: both; border-bottom: 1px solid #CCC; }
+.comments .previous-comments { margin: 20px 0 20px 0; }
+.comments form label { display: block; width: 100px; margin-top: 20px; }
+.comments form textarea { width: 100%; height: 100px; margin-bottom: 20px; }

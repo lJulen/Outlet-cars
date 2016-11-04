@@ -1,0 +1,8 @@
+# src/Blogger/AdminBundle/resources/config/routing.yml
+blogger_admin_login:
+    pattern: /login
+    defaults: { _controller: BloggerAdminBundle:Security:login }
+blogger_admin_login_check:
+    pattern: /login_check
+blogger_admin_logout:
+    pattern: /logout
